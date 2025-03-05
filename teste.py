@@ -27,4 +27,10 @@ st.bar_chart(df['NM_MUNIC'].value_counts()[:10])
 
 df_qnt_estado = df['NM_UF'].value_counts().reset_index(name="total")
 fig_qnt_estado = px.bar(df_qnt_estado, x="NM_UF", y="total", color="total", title="Quantidade de Pessoas por Estado")
+fig_qnt_estado.update_layout(xaxis_title= "Estado", yaxis_title= "Quantidade")
 st.plotly_chart(fig_qnt_estado, use_container_width=True)
+
+df_qnt_mun = df['NM_MUNIC'].value_counts().reset_index(name="total")
+fig_qnt_mun = px.bar(df_qnt_mun, x="NM_MUNIC", y="total", color="total", title="Quantidade de Pessoas por Municipio")
+fig_qnt_mun.update_layout(xaxis_title= "Municipio", yaxis_title= "Quantidade")
+st.plotly_chart(fig_qnt_mun, use_container_width=True)

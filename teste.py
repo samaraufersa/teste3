@@ -23,3 +23,7 @@ if st.checkbox('Mostrar tabela') == True:
 st.map(dadosFiltrados, latitude = 'Lat_d', longitude = 'Long_d')
 st.bar_chart(df['NM_UF'].value_counts())
 st.bar_chart(df['NM_MUNIC'].value_counts()[:10])
+
+df_qnt_estado = df['NM_UF'].value_counts().reset_index(name="total")
+fig_qnt_estado = px.bar(df_qnt_estado, x="NM_UF", y="total", color="total", title="Quantidade de Pessoas por Estado")
+st.plotly_chart(fig_qnt_estado, use_container_width=True)
